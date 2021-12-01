@@ -14,7 +14,7 @@ const EventSchema = mongoose.Schema({
         required: true,
         validate: {
             validator: dates => dates[1] > dates[0],
-            message: () => 'Rango de fechas no valido'
+            message: () => 'Rango de fechas no valido, la segunda fecha es menor que la primera'
         }
     },
     participants:{
