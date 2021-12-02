@@ -13,20 +13,24 @@ const TeamMemberSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    porfilePic:{
+        type:String,
+        required:true
+    },
     project: {
         type: mongoose.Schema.Types.ObjectId,
         required: false,
-        ref='Project'
+        ref:'Project'
     },
     events: {
         type: [mongoose.Schema.Types.ObjectId],
         required: false,
-        ref='Event'
+        ref:'Event'
     },
     asignedTask: {
         type: [mongoose.Schema.Types.ObjectId],
         required: false,
-        ref='Task'
+        ref:'Task'
     }
 })
 module.exports = mongoose.model('TeamMember', TeamMemberSchema)
