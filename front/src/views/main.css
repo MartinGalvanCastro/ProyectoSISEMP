@@ -1,0 +1,12 @@
+#main-content {
+  margin: 5vmax 0vmax 0vmax 1vmax;
+  padding: 2vmax;
+  border-radius: 45px;
+background: #FFFFFF;
+box-shadow:  41px 41px 82px #bdbdbd,
+             -41px -41px 82px #ffffff;
+}
+
+#calendar{
+  text-align: center;
+}

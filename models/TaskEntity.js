@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const statusList = ['Creada, En progreso, Pendiente, Completa']
+const statusList = ['Creada', 'En progreso', 'Pendiente', 'Completa']
 const priorityList = ['Alta', 'Baja', 'Media']
 const today = new Date()
 const tomorrow = new Date(today)
@@ -23,14 +23,14 @@ const TaskSchema = mongoose.Schema({
         }
     },
     startDate: {
-        type: Date,
+        type: String,
         required: false,
         default: today
     },
     deadline: {
-        type: Date,
+        type: String,
         required: true,
-        min: [tomorrow, 'La fecha debe ser mayor a la fecha actual, se ingreso {VALUE}']
+        //min: [tomorrow, 'La fecha debe ser mayor a la fecha actual, se ingreso {VALUE}']
     },
     priority: {
         type: String,
@@ -51,4 +51,4 @@ const TaskSchema = mongoose.Schema({
         required: true
     }
 })
-module.exports = mongoose.model('Task', TaskSchema)
+module.exports = mongoose.model('Task', TaskSchema,'Task')

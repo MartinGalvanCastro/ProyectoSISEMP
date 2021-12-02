@@ -10,10 +10,12 @@ const EventSchema = mongoose.Schema({
         required: true
     },
     dates: {
-        type: [Date],
+        type: [String],
         required: true,
         validate: {
-            validator: dates => dates[1] > dates[0],
+            validator: (dates) => {
+                dates.map(x=>new Date(x))
+                return dates[1]>dates[0]},
             message: () => 'Rango de fechas no valido, la segunda fecha es menor que la primera'
         }
     },
@@ -23,4 +25,4 @@ const EventSchema = mongoose.Schema({
         required:true
     }
 })
-module.exports = mongoose.model('Event', EventSchema)
+module.exports = mongoose.model('Event', EventSchema,'Event')

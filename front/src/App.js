@@ -1,19 +1,18 @@
-import React, {useState,useEffect} from 'react';
-import './App.css';
-import Container from "react-bootstrap/Container"
-import HomeScreen from "./views/main"
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Container from "react-bootstrap/Container";
+import HomeScreen from "./views/main";
+import axios from "axios";
 
 function App() {
-  const [user,setUser] = useState({})
-  useEffect(()=>{
-    fetch('/teammember/random')
-    .then(res=>res.json())
-    .then(res=>setUser(res))
-  },[])
-  
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    axios.get("/teammember/?random=true").then(res => setUser(res.data));
+  }, []);
+
   return (
     <Container className="App">
-      <HomeScreen/>
+      <HomeScreen user={user} />
     </Container>
   );
 }

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const statusList = ['Levantamiento de Requerimientos, Validación de QA, Desarollo, Despliegue']
+const statusList = ['Levantamiento de Requerimientos', 'Validación de QA', 'Desarollo', 'Despliegue']
 const today = new Date()
 const tomorrow = new Date(today)
 tomorrow.setDate(tomorrow.getDate() + 1)
@@ -38,4 +38,4 @@ const ProjectSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Project', ProjectSchema)
+module.exports = mongoose.model('Project', ProjectSchema,'Project')

@@ -7,7 +7,7 @@ require("dotenv/config");
 const mongoose = require("mongoose");
 
 console.log(`Connection URI ${process.env.DB_CONNECTION}`);
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, autoCreate:true }).then(console.log('Connection to DB!')).catch(err=>console.log(err.message));
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true}).then(console.log('Connection to DB!')).catch(err=>console.log(err.message));
 
 
 // Indexes

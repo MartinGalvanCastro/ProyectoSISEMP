@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "front": "cd front && npm run build"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^10.0.0",
@@ -20,5 +22,5 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "proxy":"http://localhost:3000"
+  "proxy": "http://localhost:3000"
 }

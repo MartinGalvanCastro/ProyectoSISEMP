@@ -33,4 +33,4 @@ const TeamMemberSchema = mongoose.Schema({
         ref:'Task'
     }
 })
-module.exports = mongoose.model('TeamMember', TeamMemberSchema)
+module.exports = mongoose.model('TeamMember', TeamMemberSchema,'TeamMember')
