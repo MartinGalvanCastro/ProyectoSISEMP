@@ -1,0 +1,24 @@
+[
+    {
+        "nombre": "Universidad de los Andes",
+        "fechaInicio": "1, Nov 2021",
+        "encargado": "Nicolas Segura",
+        "fechaLimite": "15, Dic 2021",
+        "estado": "Despliegue"
+    },
+    {
+        "nombre": "Universidad de la Sabana",
+        "fechaInicio": "5, Nov 2021",
+        "encargado": "Martin Galvan",
+        "fechaLimite": "19, Dic 2021",
+        "estado": "QA"
+    },
+    {
+        "nombre": "Universidad del Rosario",
+        "fechaInicio": "7, Nov 2021",
+        "encargado": "Sara Acosta",
+        "fechaLimite": "21, Dic 2021",
+        "estado": "Desarrollo"
+    }
+
+]

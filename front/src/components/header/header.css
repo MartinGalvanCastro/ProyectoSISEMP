@@ -1,25 +1,4 @@
-#logo {
-  height: 5vmax;
-  width: auto;
-}
-#enterprise{
-  align-content: center;
-  text-align: end;
-}
-
-#porfile-pic {
-  height: 3vmax;
-  width: auto;
-}
-
-#porfile {
-  align-content: flex-end;
-  text-align: end;
-}
-
-#main-header {
-  margin: 2vmax 0vmax 0vmax 1vmax;
-  border-radius: 77px;
-  background: #ffffff;
-  box-shadow: 41px 41px 82px #bdbdbd, -41px -41px 82px #ffffff;
+#logo{
+    height: 7vmax;
+    width: auto;
 }
