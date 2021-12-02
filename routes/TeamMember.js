@@ -16,14 +16,12 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
     try {
-        const teamMember = await TeamMember.findById(req.params.id);
-        teamMember
-            .populate(["project", "events", "asignedTask"])
-            .exec((err, teamMemberPopulated) => {
-                if (err) res.status(400).send({ message: err });
-                else res.status(200).send(teamMemberPopulated);
-            });
+        const requestTeamMember = await TeamMember.findById(req.params.id);
+        await requestTeamMember.populate(["project", "events", "asignedTask"]);
+        console.log(requestTeamMember)
+        res.status(200).send(requestTeamMember)
     } catch (err) {
+        console.log(err)
         res.status(400).send({ message: err });
     }
 });

@@ -7,7 +7,7 @@ import axios from "axios";
 function App() {
   const [user, setUser] = useState({});
   useEffect(() => {
-    axios.get("/teammember/?random=true").then(res => setUser(res.data));
+    axios.get("/teammember/61a915549b0d733fdc7f4633").then(res => setUser(res.data));
   }, []);
 
   return (
