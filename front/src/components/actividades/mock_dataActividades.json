@@ -1,0 +1,23 @@
+[
+    {
+        "id":1,
+        "encargado":"Nicolas Segura",
+        "descripcion":"Realizar actividades desarrollo",
+        "tipo":"Petición",
+        "fecha":"27, Oct 2021"
+    },
+    {
+        "id":2,
+        "encargado":"Nicolas Segura",
+        "descripcion":"Realizar actividades desarrollo",
+        "tipo":"Petición",
+        "fecha":"27, Oct 2021"
+    },
+    {
+        "id":3,
+        "encargado":"Nicolas Segura",
+        "descripcion":"Realizar actividades desarrollo",
+        "tipo":"Petición",
+        "fecha":"27, Oct 2021"
+    }
+]
