@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const cors = require('cors')
 const Project = require("../models/ProjectEntity");
 
-router.get("/", async (req, res) => {
+router.get("/", cors(), async (req, res) => {
   try {
     const Projects = await Project.find();
     res.status(200).send(Projects);

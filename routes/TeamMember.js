@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const cors = require('cors')
 const TeamMember = require("../models/TeamMemberEntity");
 
 router.get("/", async (req, res) => {
@@ -14,7 +15,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", cors() , async (req, res) => {
     try {
         const requestTeamMember = await TeamMember.findById(req.params.id);
         await requestTeamMember.populate(["project", "events", "asignedTask"]);

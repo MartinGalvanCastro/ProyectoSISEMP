@@ -1,62 +1,42 @@
 import React, { useMemo } from "react";
-import { useTable } from 'react-table'
 import { COLUMNS } from "./columns";
 import mock_data from './mock_data.json'
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import {Table} from "react-bootstrap"
+import { Table } from "react-bootstrap"
 import "./proyectos.css"
+import dateFormat, { masks } from "dateformat";
 
-const Proyectos = () => {
 
-    const columns = useMemo(() => COLUMNS, [])
 
-    const data = useMemo(() => mock_data, [])
+const Proyectos = (props) => {
 
-    const tableInstance = useTable({
-        columns, data
-    })
 
-    const { getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow
-    } = tableInstance
+    var projects = props.projects;
+    if( !projects ||!Array.isArray(projects)) projects = []
+
+    console.log(projects)
     return (
         <>
             <h1> Listado de Proyectos </h1>
 
-            <Table stripped borderded hover {...getTableProps()}>
+            <Table stripped borderded hover>
                 <thead>
-                    {
-                        headerGroups.map((headerGroup) =>
-                        (
-                            <tr {...headerGroup.getHeaderGroupProps()}>
-                                {
-                                    headerGroup.headers.map( (column) => (
-                                        <th {...column.getHeaderProps()}> {column.render('Header')}</th>
-                                    ))
-                                }
-                            </tr>
-
-                        ))}
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Estado</th>
+                    <th>Fecha Limite</th>
                 </thead>
-                <tbody {...getTableBodyProps()}>
-                    {
-                        rows.map((row) => {
-                            prepareRow(row)
-                            return (
-                                <tr {...row.getRowProps()}>
-                                    {row.cells.map((cell) => {
-                                        return <td {...cell.getCellProps()}>
-                                                {cell.render('Cell')}
-                                            </td>
-                                        })}
-                                </tr>                                
-                            )
-                        })
-                    }
+                <tbody>
+                {projects?.map((project) => (
+                        <tr>
+                            <td>{project?.name}</td>
+                            <td>{project?.description}</td>
+                            <td>{project?.status}</td>
+                            <td>{dateFormat(project?.deadline, "dd, mmmm yyyy")}</td>
+                        </tr>
+
+                    ))}
                 </tbody>
             </Table>
         </>
