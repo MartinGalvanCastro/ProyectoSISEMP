@@ -31,6 +31,7 @@ function App() {
     <Container className="App">
       
       <HomeScreen user={user} projects={projects} activities={activities}/>     
+
     </Container>
   );
 }

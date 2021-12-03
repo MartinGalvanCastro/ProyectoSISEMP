@@ -15,7 +15,6 @@ const Proyectos = (props) => {
     var projects = props.projects;
     if( !projects ||!Array.isArray(projects)) projects = []
 
-    console.log(projects)
     return (
         <>
             <h1> Listado de Proyectos </h1>

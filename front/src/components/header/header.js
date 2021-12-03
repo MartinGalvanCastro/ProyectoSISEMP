@@ -3,6 +3,8 @@ import "./header.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Qdit from "./QDit.jpg";
+
+
 const renderImage = (src, alt, id) =>{
   return <img src={src} alt={alt} id={id} className="img-fluid"/>
 }

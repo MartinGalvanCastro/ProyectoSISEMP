@@ -4,9 +4,7 @@ import "./calendar.css";
 import Row from "react-bootstrap/Row";
 const eventConstructor = (event) => {
   if (event) {
-    console.log(event.dates)
     const newDates = event.dates.map((x) => new Date(x));
-    console.log(newDates);
     return {
       id: event._id,
       from: newDates[0],
