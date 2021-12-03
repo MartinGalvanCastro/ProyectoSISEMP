@@ -7,7 +7,7 @@ import axios from "axios";
 function App() {
   const [user, setUser] = useState({});
   const [projects, setProjects] = useState({})
-  const [activities, setActivities] = useState({})
+  const [activities, setActivities] = useState({})  
   useEffect(() => {
     axios.get("http://localhost:3000/teammember/61a915549b0d733fdc7f4633").then(res => setUser(res.data))
     .catch(error => {
@@ -21,7 +21,7 @@ function App() {
     })
   }, []);
   useEffect(() => {
-    axios.get("http://localhost:3000/event").then(res => setActivities(res.data))
+    axios.get("http://localhost:3000/task").then(res => setActivities(res.data))
     .catch(error => {
       console.log(error)
     })
@@ -30,7 +30,7 @@ function App() {
   return (
     <Container className="App">
       
-      <HomeScreen user={user} projects={projects}/>     
+      <HomeScreen user={user} projects={projects} activities={activities}/>     
     </Container>
   );
 }

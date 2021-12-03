@@ -6,11 +6,13 @@ import Row from "react-bootstrap/Row"
 import "./main.css";
 import Actividades from '../components/actividades/actividades';
 import EventCalendar from "../components/calendar/calendar";
+import Tasks from '../components/tasks/tasks';
 
 
 const HomeScreen = (props) =>{
     const user = props.user;
     const projects = props.projects;
+    const activities = props.activities;
     console.log(projects)
     return(
     <>
@@ -21,7 +23,7 @@ const HomeScreen = (props) =>{
             <EventCalendar user={user} />
           </Col>
           <Col id="actividades" md={4} className="ml-1 mb-1">
-          <h1>PlaceHolder</h1>    
+            <Actividades activities={activities} />  
           </Col>
         </Row>
         <Row>
@@ -29,7 +31,7 @@ const HomeScreen = (props) =>{
           <Proyectos projects={projects} />             
           </Col>
           <Col id="tareas" md={4} className="ml-1 mt-1">          
-          <h1>PlaceHolder</h1>
+          <Tasks user={user}/>
           </Col>
         </Row>
       </Row>
