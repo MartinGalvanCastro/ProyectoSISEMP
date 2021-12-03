@@ -2,6 +2,7 @@ var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
+const cors = require('cors')
 var logger = require("morgan");
 require("dotenv/config");
 const mongoose = require("mongoose");
