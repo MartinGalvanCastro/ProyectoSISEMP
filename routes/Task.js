@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const cors = require('cors')
 const Task = require("../models/TaskEntity");
+const { Compressor } = require("mongoose/node_modules/mongodb");
 
-router.get("/", async (req, res) => {
+router.get("/", cors(), async (req, res) => {
   try {
     const Tasks = (await Task.find()).map(
       async (x) => await x.populate(["project", "asignedTo"])

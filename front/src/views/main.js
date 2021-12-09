@@ -9,6 +9,7 @@ import Form from "react-bootstrap/Form";
 import "./main.css";
 import Actividades from "../components/actividades/actividades";
 import EventCalendar from "../components/calendar/calendar";
+import Tasks from '../components/tasks/tasks';
 import axios from "axios";
 
 const HomeScreen = (props) => {
@@ -99,7 +100,7 @@ const HomeScreen = (props) => {
             <EventCalendar user={user} setUpdate={setUpdate}/>
           </Col>
           <Col id="actividades" md={4} className="ml-1 mb-1">
-            <Actividades />
+            <Actividades activities={activities} />  
           </Col>
         </Row>
         <Row>
@@ -108,8 +109,8 @@ const HomeScreen = (props) => {
             <Button onClick={handleShow}>Agregar un Proyecto</Button>
             {RenderModal()}
           </Col>
-          <Col id="tareas" md={4} className="ml-1 mt-1">
-            <h1>PlaceHolder</h1>
+          <Col id="tareas" md={4} className="ml-1 mt-1">          
+          <Tasks user={user}/>
           </Col>
         </Row>
       </Row>
