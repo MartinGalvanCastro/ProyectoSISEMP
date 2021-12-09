@@ -48,13 +48,7 @@ function App() {
   
   return (
     <Container className="App">
-<<<<<<< HEAD
       <HomeScreen user={user} projects={projects} activities={activities} task={task} allUsers={allUsers} setUpdate={setUpdate}/>     
-=======
-      
-      <HomeScreen user={user} projects={projects} activities={activities}/>     
-
->>>>>>> 1d2d500e7f0c8562d15b02dbd1763acfa9ca1eb1
     </Container>
   );
 }
