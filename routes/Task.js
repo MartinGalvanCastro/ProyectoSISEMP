@@ -4,8 +4,10 @@ const Task = require("../models/TaskEntity");
 
 router.get("/", async (req, res) => {
   try {
-    const Tasks = await Task.find();
-    res.status(200).send(Tasks);
+    const Tasks = (await Task.find()).map(
+      async (x) => await x.populate(["project", "asignedTo"])
+    );
+    Promise.all(Tasks).then(values=>res.status(200).send(values))
   } catch (err) {
     res.status(400).send({ message: err });
   }
@@ -14,10 +16,8 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const task = await Project.findById(req.params.id);
-    task.populate(["project", "asignedTo"]).exec((err, taskPopulated) => {
-      if (err) res.status(400).send({ message: err });
-      else res.status(200).send(taskPopulated);
-    });
+    await task.populate(["project", "asignedTo"]);
+    res.status(200).send(taskPopulated);
   } catch (err) {
     res.status(400).send({ message: err });
   }
@@ -25,7 +25,8 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const newTask = new Task(req.body);
-  await newTask.save()
+  await newTask
+    .save()
     .then((data) => res.status(200).send(data))
     .catch((err) => res.status(400).send({ message: err.message }));
 });

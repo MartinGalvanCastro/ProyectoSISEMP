@@ -7,10 +7,13 @@ router.get("/", async (req, res) => {
 
     const random = req.query.random
     try {
-        const TeamMembers = await TeamMember.find();
-        if(!random) res.status(200).send(TeamMembers);
-        else res.status(200).send(TeamMembers[0])
+        const TeamMembers = (await TeamMember.find()).map(async x=>{return await x.populate(["project", "events", "asignedTask"])});
+        Promise.all(TeamMembers).then(team=>{
+            if(!random) res.status(200).send(team);
+            else res.status(200).send(team[0])
+        })
     } catch (err) {
+        console.log(err)
         res.status(400).send({ message: err });
     }
 });
@@ -19,7 +22,6 @@ router.get("/:id", cors() , async (req, res) => {
     try {
         const requestTeamMember = await TeamMember.findById(req.params.id);
         await requestTeamMember.populate(["project", "events", "asignedTask"]);
-        console.log(requestTeamMember)
         res.status(200).send(requestTeamMember)
     } catch (err) {
         console.log(err)

@@ -15,7 +15,10 @@ const HomeScreen = (props) => {
 
   const user = props.user;
   const projects = props.projects;
-  //const [memberList, setList] = useState();
+  const task = props.task
+  const activities = props.activities
+  const allUsers = props.allUsers
+  const setUpdate = props.setUpdate
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -28,13 +31,13 @@ const HomeScreen = (props) => {
       const name = event.target.name;
       const value = event.target.value;
       setValues({ ...values, [name]: value });
-      console.log(values);
     };
 
     const handleSubmit = (event) => {
       event.preventDefault();
       values.status = "Levantamiento de Requerimientos";
       values.team = [user._id];
+      setUpdate(true)
       axios.post("http://localhost:3000/project/",values).then(handleClose()).catch(err=>alert(err.message))
     };
 
@@ -93,7 +96,7 @@ const HomeScreen = (props) => {
       <Row id="main-content">
         <Row>
           <Col id="calendar" md={8} className="mr-1 mb-1 pd-5">
-            <EventCalendar user={user} />
+            <EventCalendar user={user} setUpdate={setUpdate}/>
           </Col>
           <Col id="actividades" md={4} className="ml-1 mb-1">
             <Actividades />

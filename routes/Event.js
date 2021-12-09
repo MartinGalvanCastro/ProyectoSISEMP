@@ -4,8 +4,8 @@ const Event = require("../models/EventEntity");
 
 router.get("/", async (req, res) => {
   try {
-    const events = await Event.find();
-    res.status(200).send(events);
+    const events = (await Event.find()).map(async x=> await x.populate("participants"));
+    Promise.all(events).then(values=>res.status(200).send(values))
   } catch (err) {
     res.status(400).send({ message: err });
   }
@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
     await newEvent
     .save()
     .then((data) => res.status(200).send(data))
-    .catch((err) => res.status(400).send({ message: err.message }));
+    .catch((err) =>{ console.log(err) ; res.status(400).send({ message: err.message })});
 });
 
 router.put("/:id", async (req, res) => {

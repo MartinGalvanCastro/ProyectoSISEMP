@@ -5,7 +5,7 @@ const Actividades = () => {
 
     return (
         <>
-            <h1> Ultimas actividades </h1>
+            <h1> Most Recent Completed Activities </h1>
 
             <ul>
                 {mock_dataActividades.map((data) => (

@@ -5,8 +5,8 @@ const Project = require("../models/ProjectEntity");
 
 router.get("/", cors(), async (req, res) => {
   try {
-    const Projects = await Project.find();
-    res.status(200).send(Projects);
+    const Projects = (await Project.find()).map(async x=>await x.populate(["tasks", "team"]));
+    Promise.all(Projects).then(values=>res.status(200).send(values))
   } catch (err) {
     res.status(400).send({ message: err });
   }
